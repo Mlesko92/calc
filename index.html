@@ -6,16 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ultra Calculator</title>
     <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="calc-body">
-        <div class="calc-screen"></div>
-        <div class="calc-numpad">
-            <ul>
-            </ul>
+        <input class="calc-screen" placeholder="000000000" disabled></input>
+        <div class="numbers">
+            <div class="calc-numpad">
+                <ul>
+                </ul>
+            </div>
+            <div class="calc-operators">
+                <ul class="operators">
+                    <button>+</button>
+                    <button>-</button>
+                    <button>/</button>
+                    <button>*</button>
+                    <button>=</button>
+                </ul>
+            </div>
         </div>
-        <div class="calc-operators"></div>
     </div>
     <script src="./src.js"></script>
 </body>

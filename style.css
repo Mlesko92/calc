@@ -3,6 +3,16 @@ body {
     justify-content: center;
 }
 
+input {
+    font-family: 'Roboto Mono', monospace;
+    background-color: rgb(244, 189, 88);
+    font-size: 64px;
+}
+
+.calc-screen::placeholder {
+    color: rgba(0, 0, 0, 0.2);
+}
+
 .calc-body {
     display: flex;
     flex-direction: column;
@@ -10,26 +20,43 @@ body {
     border: solid;
     border-radius: 32px;
     height: 650px;
-    width: 500px;
+    width: 400px;
+    background-image: linear-gradient(rgb(85, 84, 84), rgb(57, 56, 56));
 }
 
 .calc-screen {
     border: solid;
     border-radius: 32px;
     height: 100px;
-    width: 450px;
+    width: 370px;
     margin-top: 32px;
 }
 
-.calc-numpad {
-    align-self: flex-start;
-    margin-top: 50px;
-    margin-left: 25px;
-    height: 500px;
-    width: 300px;
+.numbers {
+    display: flex;
+    width: 350px;
+    justify-content: space-between;
+    align-self: center;
 }
 
-ul {
+.calc-numpad {
+    display: flex;
+    justify-content: center;
+    height: 450px;
+    width: 300px;
+    margin-top: 30px;
+    margin-left: 0;
+}
+
+.calc-operators {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+    height: 350px;
+    width: 100px;
+}
+
+.calc-numpad ul {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -39,9 +66,28 @@ ul {
     padding: 0;
 }
 
+.calc-operators ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+ul.operators button {
+    background: #73AD21;
+    color: white;
+    font-size: 32px;
+    border-radius: 16px;
+    height: 40px;
+    width: 40px;
+}
+
 button {
-    height: 85px;
-    width: 80px;
+    background: #5a8321;
+    color: white;
+    font-size: 32px;
+    height: 70px;
+    width: 65px;
 }
 
 button:nth-child(13) {
