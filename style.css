@@ -52,7 +52,7 @@ input {
     display: flex;
     justify-content: flex-end;
     margin-top: 30px;
-    height: 350px;
+    height: 400px;
     width: 100px;
 }
 
@@ -74,16 +74,16 @@ input {
     padding: 0;
 }
 ul.operators button {
-    background: #73AD21;
+    background: hsl(67, 71%, 34%);
     color: white;
     font-size: 32px;
-    border-radius: 16px;
-    height: 40px;
-    width: 40px;
+    height: 45px;
+    width: 45px;
 }
 
 button {
     background: #5a8321;
+    border-radius: 16px;
     color: white;
     font-size: 32px;
     height: 70px;
