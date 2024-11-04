@@ -19,7 +19,7 @@ for (i = 1; i < 14; i++) {
 
 // Calc
 
-let firstNum, secondNum, operation;
+let firstNum, secondNum, operation, resetInput;
 
 function add(num1, num2) {
   return num1 + num2;
@@ -65,29 +65,64 @@ const optButtons = document.querySelectorAll(".calc-operators button");
 
 numButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    let enteredValue = display.value;
-    display.value = enteredValue + button.textContent;
+    if (resetInput) {
+      display.value = "";
+      display.value = button.textContent;
+      resetInput = false;
+    } else {
+      let enteredValue = display.value;
+      display.value = enteredValue + button.textContent;
+    }
   });
 });
 
+// optButtons.forEach((button) => {
+//   button.addEventListener("click", () => {
+//     if (operation && firstNum && display.value) {
+//         secondNum = display.value;
+//         const result = operate(operation, firstNum, secondNum);
+//         display.value = result;
+//     }
+//     if (button.textContent === "=") {
+//     } else {
+//       operation = button.textContent;
+//     }
+//     if (operation === "c") {
+//       firstNum = undefined;
+//       secondNum = undefined;
+//       display.value = "";
+//     }
+//     if (firstNum === undefined && display.value) {
+//       firstNum = display.value;
+//       display.value = "";
+//     }
+//   });
+// });
+
 optButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    if (button.textContent === "=") {
-    } else {
-      operation = button.textContent;
+    resetInput = false;
+    const clickedOperation = button.textContent;
+    if (
+      clickedOperation == "+" ||
+      clickedOperation == "-" ||
+      clickedOperation == "/" ||
+      clickedOperation == "*"
+    ) {
+      operation = clickedOperation;
+      if (firstNum != undefined) {
+        secondNum = display.value;
+      }
+      firstNum = display.value;
+      resetInput = true;
     }
-    if (operation === "c") {
+    if (clickedOperation == "c") {
+      display.value = "";
       firstNum = undefined;
       secondNum = undefined;
-      display.value = "";
     }
-    if (firstNum === undefined && display.value) {
-      firstNum = display.value;
-      display.value = "";
-    } else {
+    if (clickedOperation == "=") {
       secondNum = display.value;
-    }
-    if (operation && firstNum && secondNum) {
       const result = operate(operation, firstNum, secondNum);
       display.value = result;
     }
