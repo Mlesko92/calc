@@ -19,7 +19,7 @@ for (i = 1; i < 14; i++) {
 
 // Calc
 
-let firstNum, secondNum, operation, resetInput;
+let firstNum, secondNum, operation, resetInput, previousOperation;
 
 function add(num1, num2) {
   return num1 + num2;
@@ -102,7 +102,7 @@ numButtons.forEach((button) => {
 optButtons.forEach((button) => {
   button.addEventListener("click", () => {
     resetInput = false;
-    const clickedOperation = button.textContent;
+    let clickedOperation = button.textContent;
     if (
       clickedOperation == "+" ||
       clickedOperation == "-" ||
@@ -112,9 +112,16 @@ optButtons.forEach((button) => {
       operation = clickedOperation;
       if (firstNum != undefined) {
         secondNum = display.value;
+        if (previousOperation) {
+          const result = operate(previousOperation, firstNum, secondNum);
+          display.value = result;
+          resetInput = true;
+          previousOperation = "";
+        }
+      } else {
+        firstNum = display.value;
+        resetInput = true;
       }
-      firstNum = display.value;
-      resetInput = true;
     }
     if (clickedOperation == "c") {
       display.value = "";
@@ -126,5 +133,6 @@ optButtons.forEach((button) => {
       const result = operate(operation, firstNum, secondNum);
       display.value = result;
     }
+    previousOperation = clickedOperation;
   });
 });
